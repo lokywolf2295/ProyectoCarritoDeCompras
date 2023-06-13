@@ -1,21 +1,18 @@
 package ar.com.lokywolf2295.proyectocarritodecompras.model.dto.response;
 
+import ar.com.lokywolf2295.proyectocarritodecompras.model.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductResponseDTO {
+public class ShopingResponseDTO {
 
     private Long id;
-    private String name;
-    private String category;
-    private String subCategory;
-    private String description;
-    private double price;
-    private int quantity;
-    private String photo;
+    private List<Product> productsList;
     private boolean enabled;
 }

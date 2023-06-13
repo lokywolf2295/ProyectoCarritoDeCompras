@@ -12,7 +12,6 @@ public class ProductRequestDTO {
     private String name;
     @NotNull
     private String category;
-    private String subCategory;
     @NotNull
     private String description;
     @NotNull
