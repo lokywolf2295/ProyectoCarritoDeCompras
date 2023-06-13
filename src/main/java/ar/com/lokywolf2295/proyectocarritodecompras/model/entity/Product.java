@@ -45,7 +45,7 @@ public class Product {
 
     @ApiModelProperty("Cantidad de productos, numero entero o con 2 decimales, utilizando el . punto como separador")
     @Column(name = "quantity", nullable = false, scale = 2)
-    private double quantity;
+    private int quantity;
 
     @Lob
     @Column(name = "photo", columnDefinition = "LONGTEXT")
