@@ -1,5 +1,7 @@
 package ar.com.lokywolf2295.proyectocarritodecompras.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -30,7 +32,8 @@ public class ShoppingCart {
     @ApiModelProperty("Clave primaria autoincremental tipo Long")
     private Long id;
 
-    @OneToMany(mappedBy = "carts", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("cart")
     @ApiModelProperty("Lista de productos que contiene el carrito")
     private List<Product> productsList; // "carritoProductos" es el atributo de la clase Producto
 
@@ -43,12 +46,12 @@ public class ShoppingCart {
             productsList = new ArrayList<>(); //instancio la lista si no existe
         }
         this.productsList.add(objProduct); //agrego objProducto a la lista
-        objProduct.setShoppingCartProductos(this); //seteo el Carrito en la clase Producto
+        objProduct.setCart(this); //seteo el Carrito en la clase Producto
     }
 
     public void removeProduct(Product objProduct) {
         this.productsList.remove(objProduct);
-        objProduct.setShoppingCartProductos(null);
+        objProduct.setCart(null);
     }
 
     public double totalCartAmount() {
