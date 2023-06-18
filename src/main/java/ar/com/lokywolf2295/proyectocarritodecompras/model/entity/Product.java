@@ -33,9 +33,6 @@ public class Product {
     @Column(name = "category", nullable = false, length = 30)
     private String category;
 
-    @Column(name = "subcategory", length = 30)
-    private String subcategory;
-
     @Column(name = "description", length = 50)
     private String description;
 
@@ -57,6 +54,5 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "id_cart")
-    @JsonIgnore
-    private ShoppingCart shoppingCartProductos;
+    private ShoppingCart cart;
 }
