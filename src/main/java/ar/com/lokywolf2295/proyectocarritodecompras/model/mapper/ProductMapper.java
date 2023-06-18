@@ -1,6 +1,7 @@
 package ar.com.lokywolf2295.proyectocarritodecompras.model.mapper;
 
 import ar.com.lokywolf2295.proyectocarritodecompras.model.dto.request.ProductRequestDTO;
+import ar.com.lokywolf2295.proyectocarritodecompras.model.dto.request.ProductRequestUpdateDTO;
 import ar.com.lokywolf2295.proyectocarritodecompras.model.dto.response.ProductResponseDTO;
 import ar.com.lokywolf2295.proyectocarritodecompras.model.entity.Product;
 import org.springframework.stereotype.Component;
@@ -41,7 +42,7 @@ public class ProductMapper implements Function<Product, ProductResponseDTO> {
         return productResponseDTO;
     }
 
-    public Product refreshValues(Product product, ProductRequestDTO productRequestDTO) {
+    public Product refreshValues(Product product, ProductRequestUpdateDTO productRequestDTO) {
         if (productRequestDTO.getName() != null && !productRequestDTO.getName().trim().isEmpty())
             product.setName(productRequestDTO.getName());
         if (productRequestDTO.getDescription() != null && !productRequestDTO.getDescription().trim().isEmpty())
