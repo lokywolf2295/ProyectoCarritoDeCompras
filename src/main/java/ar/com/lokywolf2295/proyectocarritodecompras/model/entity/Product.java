@@ -1,6 +1,5 @@
 package ar.com.lokywolf2295.proyectocarritodecompras.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
@@ -8,7 +7,6 @@ import lombok.*;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-
 
 @Data
 @AllArgsConstructor
