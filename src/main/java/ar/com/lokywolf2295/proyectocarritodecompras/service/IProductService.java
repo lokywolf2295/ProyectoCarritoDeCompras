@@ -8,15 +8,15 @@ import org.springframework.data.domain.Page;
 
 public interface IProductService {
 
-    public ProductResponseDTO createProduct(ProductRequestDTO productRequestDto);
+    ProductResponseDTO createProduct(ProductRequestDTO productRequestDto);
 
-    public ProductResponseDTO updateProduct(Long id, ProductRequestUpdateDTO productRequestUpdateDTO);
+    ProductResponseDTO updateProduct(Long id, ProductRequestUpdateDTO productRequestUpdateDTO);
 
-    public void deleteProduct(Long id);
+    void deleteProduct(Long id);
 
     Product getProductById(Long id);
 
-    public ProductResponseDTO getProductDetails(Long id);
+    ProductResponseDTO getProductDetails(Long id);
 
-    public Page<ProductResponseDTO> getAllProducts(int page);
+    Page<ProductResponseDTO> getAllProducts(int page);
 }

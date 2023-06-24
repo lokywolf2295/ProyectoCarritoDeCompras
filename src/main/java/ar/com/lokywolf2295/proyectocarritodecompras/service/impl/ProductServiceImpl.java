@@ -9,7 +9,6 @@ import ar.com.lokywolf2295.proyectocarritodecompras.repository.IProductRepositor
 
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +24,6 @@ public class ProductServiceImpl implements IProductService {
 
     private final IProductRepository productRepository;
     private final ProductMapper productMapper;
-
-    @Autowired
-    public IProductRepository tablaRepo;
 
     @Override
     public ProductResponseDTO createProduct(ProductRequestDTO productRequestDTO) {
