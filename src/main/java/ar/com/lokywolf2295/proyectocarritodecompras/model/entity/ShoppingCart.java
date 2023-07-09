@@ -37,6 +37,9 @@ public class ShoppingCart {
     @ApiModelProperty("Lista de productos que contiene el carrito")
     private List<Product> productsList; // "carritoProductos" es el atributo de la clase Producto
 
+    @Column(name = "product_qty")
+    private Integer productQuantity;
+
     @Column(name = "enable")
     @ApiModelProperty("Permite corroborar si el carrito esta habilitado o no")
     private boolean enabled = true;
