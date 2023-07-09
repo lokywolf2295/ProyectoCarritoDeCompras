@@ -12,8 +12,8 @@ public class ShoppingCartMapper {
 
     public ShoppingCart toEntity (ShopingRequestDTO dto, Product product, ShoppingCart cart){
         ShoppingCart item = new ShoppingCart();
-        item.setProductsList(List.of(product));
-        item.setEnabled(dto.isEnabled());
+        item.setProductsList(dto.getProductsList());
+        item.setProductQuantity(dto.getQuantity());
         return item;
     }
 }
