@@ -11,6 +11,5 @@ import java.util.List;
 @AllArgsConstructor
 public class ShopOrderDto {
     private List<Product> cart;
-    private String typeOfPayment;
     private BigDecimal totalAmount;
 }
