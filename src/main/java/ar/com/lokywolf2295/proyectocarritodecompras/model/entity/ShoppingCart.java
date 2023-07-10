@@ -1,7 +1,5 @@
 package ar.com.lokywolf2295.proyectocarritodecompras.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -11,10 +9,6 @@ import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Data
 @AllArgsConstructor
@@ -32,33 +26,19 @@ public class ShoppingCart {
     @ApiModelProperty("Clave primaria autoincremental tipo Long")
     private Long id;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("cart")
-    @ApiModelProperty("Lista de productos que contiene el carrito")
-    private List<Product> productsList; // "carritoProductos" es el atributo de la clase Producto
+    @OneToOne
+    @JoinColumn(name = "product_id")
+    @ApiModelProperty("Producto que contiene el carrito")
+    private Product product; // "carritoProductos" es el atributo de la clase Producto
+
+    @Column(name = "product_qty")
+    private Integer productQuantity;
 
     @Column(name = "enable")
     @ApiModelProperty("Permite corroborar si el carrito esta habilitado o no")
     private boolean enabled = true;
 
-    public void addProduct(Product objProduct) {
-        if (productsList == null) {
-            productsList = new ArrayList<>(); //instancio la lista si no existe
-        }
-        this.productsList.add(objProduct); //agrego objProducto a la lista
-        objProduct.setCart(this); //seteo el Carrito en la clase Producto
-    }
-
-    public void removeProduct(Product objProduct) {
-        this.productsList.remove(objProduct);
-        objProduct.setCart(null);
-    }
-
-    public double totalCartAmount() {
-        double initial = 0.00;
-        for (Product elem : productsList) {
-            initial += elem.getQuantity() * elem.getPrice();
-        }
-        return initial;
-    }
+    @ManyToOne
+    @JoinColumn(name = "shop_order_id")
+    private ShopOrder shopOrder;
 }

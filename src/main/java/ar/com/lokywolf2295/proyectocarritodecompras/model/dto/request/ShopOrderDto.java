@@ -1,6 +1,6 @@
 package ar.com.lokywolf2295.proyectocarritodecompras.model.dto.request;
 
-import jakarta.validation.constraints.NotNull;
+import ar.com.lokywolf2295.proyectocarritodecompras.model.entity.ShoppingCart;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -9,13 +9,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class ShopingRequestDTO {
-
-    @NotNull
-    private Long id;
-    private List<ShopingRequestDTO> cart;
-    private int quantity;
-    private boolean enabled;
-    private BigDecimal price;
+public class ShopOrderDto {
+    private List<ShoppingCart> cart;
     private BigDecimal totalAmount;
 }
