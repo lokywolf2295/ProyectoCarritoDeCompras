@@ -1,18 +1,15 @@
 package ar.com.lokywolf2295.proyectocarritodecompras.model.mapper;
 
-import ar.com.lokywolf2295.proyectocarritodecompras.model.dto.request.ShopingRequestDTO;
 import ar.com.lokywolf2295.proyectocarritodecompras.model.entity.Product;
 import ar.com.lokywolf2295.proyectocarritodecompras.model.entity.ShoppingCart;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class ShoppingCartMapper {
 
-    public ShoppingCart toEntity (ShopingRequestDTO dto, Product product, ShoppingCart cart){
+    public ShoppingCart toEntity (Product dto, Product product){
         ShoppingCart item = new ShoppingCart();
-        item.setProductsList(dto.getProductsList());
+        item.setProduct(product);
         item.setProductQuantity(dto.getQuantity());
         return item;
     }
