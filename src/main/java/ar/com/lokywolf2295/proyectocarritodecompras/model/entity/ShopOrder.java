@@ -30,7 +30,7 @@ public class ShopOrder {
     private LocalDateTime orderDate;
 
     @OneToMany(mappedBy = "shopOrder")
-    private List<Product> products;
+    private List<ShoppingCart> products;
 
     @Column(name = "order_total")
     private BigDecimal orderTotal;
