@@ -6,5 +6,5 @@ import ar.com.lokywolf2295.proyectocarritodecompras.model.dto.response.ShopingRe
 public interface IShoppingCartService {
 
     //declaro los metodos a implementar en la clase CarritoServiceImpl
-     ShopingResponseDTO createShoppingCart(ShopingRequestDTO shopingRequestDTO);
+     void createShoppingCart(ShopingRequestDTO shopingRequestDTO);
 }
