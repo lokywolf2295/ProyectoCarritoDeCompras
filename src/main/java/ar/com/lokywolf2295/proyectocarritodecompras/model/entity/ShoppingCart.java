@@ -43,4 +43,8 @@ public class ShoppingCart {
     @Column(name = "enable")
     @ApiModelProperty("Permite corroborar si el carrito esta habilitado o no")
     private boolean enabled = true;
+
+    @ManyToOne
+    @JoinColumn(name = "shop_order_id")
+    private ShopOrder shopOrder;
 }
