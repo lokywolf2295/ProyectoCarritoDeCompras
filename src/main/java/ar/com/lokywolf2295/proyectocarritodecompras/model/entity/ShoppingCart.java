@@ -32,10 +32,10 @@ public class ShoppingCart {
     @ApiModelProperty("Clave primaria autoincremental tipo Long")
     private Long id;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("cart")
-    @ApiModelProperty("Lista de productos que contiene el carrito")
-    private List<Product> productsList; // "carritoProductos" es el atributo de la clase Producto
+    @OneToOne
+    @JoinColumn(name = "product_id")
+    @ApiModelProperty("Producto que contiene el carrito")
+    private Product product; // "carritoProductos" es el atributo de la clase Producto
 
     @Column(name = "product_qty")
     private Integer productQuantity;
@@ -43,25 +43,4 @@ public class ShoppingCart {
     @Column(name = "enable")
     @ApiModelProperty("Permite corroborar si el carrito esta habilitado o no")
     private boolean enabled = true;
-
-    public void addProduct(Product objProduct) {
-        if (productsList == null) {
-            productsList = new ArrayList<>(); //instancio la lista si no existe
-        }
-        this.productsList.add(objProduct); //agrego objProducto a la lista
-        objProduct.setCart(this); //seteo el Carrito en la clase Producto
-    }
-
-    public void removeProduct(Product objProduct) {
-        this.productsList.remove(objProduct);
-        objProduct.setCart(null);
-    }
-
-    public double totalCartAmount() {
-        double initial = 0.00;
-        for (Product elem : productsList) {
-            initial += elem.getQuantity() * elem.getPrice();
-        }
-        return initial;
-    }
 }
