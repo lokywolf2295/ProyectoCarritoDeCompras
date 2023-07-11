@@ -9,7 +9,6 @@ public class ProductRequestUpdateDTO {
 
     private String name;
     private String category;
-    private String subCategory;
     private String description;
     private double price;
     private int quantity;
