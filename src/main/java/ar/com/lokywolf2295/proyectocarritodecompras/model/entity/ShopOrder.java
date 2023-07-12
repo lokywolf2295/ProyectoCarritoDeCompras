@@ -1,10 +1,7 @@
 package ar.com.lokywolf2295.proyectocarritodecompras.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
@@ -17,6 +14,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 @Table(name = "shop_orders")
 @Entity
 public class ShopOrder {
@@ -33,5 +31,5 @@ public class ShopOrder {
     private List<ShoppingCart> products;
 
     @Column(name = "order_total")
-    private BigDecimal orderTotal;
+    private BigDecimal totalAmount;
 }
