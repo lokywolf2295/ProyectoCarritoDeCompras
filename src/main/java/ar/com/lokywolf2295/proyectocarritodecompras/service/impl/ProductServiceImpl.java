@@ -64,4 +64,16 @@ public class ProductServiceImpl implements IProductService {
         pageable.next().getPageNumber();
         return productRepository.findAll(pageable).map(productMapper);
     }
+
+    @Override
+    public void quantityVerification(Product product, int quantity) {
+        if(product.getQuantity() < quantity)
+            throw new IllegalArgumentException("No hay stock suficiente del siguiente producto: " + product.getName());
+    }
+
+    @Override
+    public void updateQuantity(Product product, int quantity) {
+        product.setQuantity(product.getQuantity() - quantity);
+        productRepository.save(product);
+    }
 }
