@@ -19,4 +19,8 @@ public interface IProductService {
     ProductResponseDTO getProductDetails(Long id);
 
     Page<ProductResponseDTO> getAllProducts(int page);
+
+    void quantityVerification(Product product, int quantity);
+
+    void updateQuantity(Product product, int quantity);
 }
