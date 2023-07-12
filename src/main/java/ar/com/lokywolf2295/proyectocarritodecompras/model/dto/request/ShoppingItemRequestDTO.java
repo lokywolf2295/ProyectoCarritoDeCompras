@@ -4,16 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductRequestUpdateDTO {
+public class ShoppingItemRequestDTO {
 
-    private String name;
-    private String category;
-    private String description;
-    private double price;
+    private long id;
     private int quantity;
-    private String photo;
-    private boolean enabled;
+    private BigDecimal price;
 }

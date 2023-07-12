@@ -1,8 +1,11 @@
 package ar.com.lokywolf2295.proyectocarritodecompras.service;
 
-import ar.com.lokywolf2295.proyectocarritodecompras.model.entity.ShopOrder;
-import ar.com.lokywolf2295.proyectocarritodecompras.model.dto.request.ShopOrderDto;
+import ar.com.lokywolf2295.proyectocarritodecompras.model.dto.request.ShoppingRequestDTO;
+import ar.com.lokywolf2295.proyectocarritodecompras.model.dto.response.ShopOrderResponseDTO;
+
 public interface IShopOrderService {
 
-    ShopOrder createShopOrder ( ShopOrderDto order);
+    ShopOrderResponseDTO createShopOrder (ShoppingRequestDTO shoppingRequestDTO);
+
+    ShopOrderResponseDTO getShopOrderDetails(Long id);
 }
