@@ -21,5 +21,4 @@ public class ProductRequestDTO {
     @NotNull
     private int quantity;
     private String photo;
-    private boolean enabled;
 }
