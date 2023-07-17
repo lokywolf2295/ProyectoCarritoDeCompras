@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import static org.springframework.http.HttpStatus.*;
 
 @RestController
-@RequestMapping ("/product")
+@RequestMapping ("/api/v1/product")
 public class ProductController {
     
     @Autowired

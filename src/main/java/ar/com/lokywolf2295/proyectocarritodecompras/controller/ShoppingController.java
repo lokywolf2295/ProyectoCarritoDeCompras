@@ -12,7 +12,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 
 @RestController
-@RequestMapping("/shopping_cart")
+@RequestMapping("/api/v1/shopping_cart")
 public class ShoppingController {
 
     @Autowired
